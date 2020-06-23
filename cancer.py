@@ -20,16 +20,22 @@ from utils import *
 from autoencoder import Autoencoder
 
 from keras.datasets import mnist
+import pandas as pd
 
 def load_cancer():
-    with open("wdbc.arff") as arff_file:
-        data, meta = arff.loadarff(arff_file)
+    #with open("/Users/dbikiel/Documents/Projects/review-ae/wdbc.arff") as arff_file:
+    #    data, meta = arff.loadarff(arff_file)
 
-    classes = { b'M': 1, b'B': 0 }
-    y = [classes[i[0]] for i in data]
-    data = data.tolist()
-    x = np.asarray([list(i[1:31]) for i in data])
-    
+    #classes = { b'M': 1, b'B': 0 }
+    #y = [classes[i[0]] for i in data]
+    #data = data.tolist()
+    #x = np.asarray([list(i[1:31]) for i in data])
+
+    data = pd.read_csv('wdbc.csv', header = None)
+
+    y = data[1].values
+    x = np.asarray(data.iloc[:,2:])
+
     return x, y
     
 

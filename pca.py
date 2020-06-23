@@ -52,5 +52,5 @@ for i in range(n):
     ax.get_xaxis().set_visible(False)
     ax.get_yaxis().set_visible(False)
 
-fig.savefig("/home/fdavidcl/Documentos/research/publications/2017/ReviewAutoencoders/examples/pca-36.pdf", pad_inches = 0)
+fig.savefig("pca-36.pdf", pad_inches = 0)
 
